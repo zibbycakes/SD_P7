@@ -11,7 +11,18 @@ public class MyClass {
 		//	Write your script here
 		// Create a Visitor Pattern
 		  RPackage pkg = RProject.getPackage("RefactoringCrawler", "edu.uiuc.detectRefactorings.detection");
-		  RClassOrInterface vis = pkg.newClass("LikelinessVisitor");
+		  RClassOrInterface vis = pkg.getClass("LikelinessVisitor");
+		  ArrayList<RMethod> visits = vis.getAllMethods();
+		  for(RMethod v : visits)
+		  {
+			  RParameter del = v.getParameter(2);
+			  v.move(del);
+		  }
+		  RClassOrInterface fd = pkg.getClass("FieldDetection");
+		  String[] comp = {"visit", "edu.uiuc.detectRefactorings.util.Node", "edu.uiuc.detectRefactorings.util.Node", "edu.uiuc.detectRefactorings.detection.LikelinessVisitor"};
+		  RMethod newVisit = fd.getMethod(comp);
+		  ArrayList<RMethod> newVisits = newVisit.getRelatives();
+		 /* RClassOrInterface vis = pkg.newClass("LikelinessVisitor");
 		  RField instance = vis.addSingleton();
 		  RClassOrInterface fd =  pkg.getClass("FieldDetection");
 		  String[] sig = {"computeLikeliness", "edu.uiuc.detectRefactorings.util.Node", "edu.uiuc.detectRefactorings.util.Node"};
@@ -37,7 +48,7 @@ public class MyClass {
 		  for(RMethod visitM : visitingMethods)
 		  {
 			  visitM.rename("visit");
-		  }
+		  }*/
 		//
 		///////////////////////////////////////////////////////////////////////
 	}
