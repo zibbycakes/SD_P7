@@ -9,7 +9,7 @@ public class MyClass {
 		///////////////////////////////////////////////////////////////////////
 		//
 		//	Write your script here
-		//Create a new class named “D”.
+		// Create a Visitor Pattern
 		  RPackage pkg = RProject.getPackage("RefactoringCrawler", "edu.uiuc.detectRefactorings.detection");
 		  RClassOrInterface vis = pkg.newClass("LikelinessVisitor");
 		  RField instance = vis.addSingleton();
@@ -19,7 +19,7 @@ public class MyClass {
 		  ArrayList<RMethod> relatives = comp.getRelatives();
 		  for(RMethod rel : relatives)
 		  {
-			  rel.addParameter(vis, instance.toString());
+			  rel.addParameter(vis, "LikelinessVisitor.instance");
 		  }
 		  for(RMethod rel : relatives)
 		  {
