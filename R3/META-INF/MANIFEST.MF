@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: P
+Bundle-SymbolicName: R3;singleton:=true
+Bundle-Version: 1.0.0.201503101345
+Bundle-ClassPath: R3_1.0.0.201503101345.jar
+Bundle-Activator: p.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Import-Package: org.eclipse.core.resources,
+ org.eclipse.jdt.core,
+ org.eclipse.jdt.core.dom
+Bundle-ActivationPolicy: lazy
